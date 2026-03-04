@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 export const metadata: Metadata = {
-  title: "California to Las Vegas Relocation Guide",
+  title: "California to Las Vegas Relocation Guide for Homebuyers",
   description:
-    "Why California homebuyers are moving to Las Vegas. Cost of living, taxes, schools, and a step-by-step relocation checklist. Expert help from Dr. Jan Duffy.",
+    "Planning to buy a home in Las Vegas? Why California homebuyers move here: taxes, cost of living, schools & relocation checklist. Dr. Jan Duffy, Berkshire Hathaway.",
 };
 
 const checklist = [
@@ -68,6 +69,26 @@ export default function RelocationPage() {
         </p>
       </section>
 
+      <section className="mb-10 bg-slate-50 p-6 rounded-lg">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          New Construction & Builder Incentives
+        </h2>
+        <p className="text-slate-700 mb-4">
+          Many California homebuyers choose new construction in Summerlin, Henderson, North Las Vegas, or Lake Las Vegas. Builders often offer rate buydowns and closing cost credits—incentives change often, so working with a Realtor who tracks them helps you get the best deal. Dr. Jan Duffy represents buyers at no extra cost and can walk you through current communities and promos.
+        </p>
+        <p className="text-slate-700 mb-4">
+          <Link href="/new-homes" className="text-blue-600 hover:underline font-medium">See our new construction & builder incentives page</Link> for an overview, then <CalendlyLink className="text-blue-600 hover:underline font-medium">schedule an appointment</CalendlyLink> to discuss your homebuying plan.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/new-homes" className="inline-block bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-slate-800">
+            New homes & builder incentives
+          </Link>
+          <CalendlyLink className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white">
+            Schedule a call with Dr. Jan Duffy
+          </CalendlyLink>
+        </div>
+      </section>
+
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">
           Relocation Checklist
@@ -95,24 +116,29 @@ export default function RelocationPage() {
 
       <section className="bg-slate-100 p-6 rounded-lg">
         <h2 className="text-xl font-bold text-slate-900 mb-3">
-          Ready to start your move?
+          Ready to look at homes for sale?
         </h2>
         <p className="text-slate-700 mb-4">
-          Dr. Jan Duffy specializes in helping California homebuyers relocate to Las Vegas and Henderson. Get personalized guidance and local market insight.
+          Dr. Jan Duffy specializes in helping California homebuyers relocate to Las Vegas and Henderson. Search current listings or get personalized guidance and local market insight.
         </p>
         <div className="flex flex-wrap gap-4">
           <a
-            href={`tel:${siteConfig.nap.phone}`}
+            href={siteConfig.realscoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-slate-800"
+          >
+            Search homes for sale
+          </a>
+          <a
+            href={`tel:${siteConfig.nap.phone}`}
+            className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white"
           >
             Call {siteConfig.nap.phoneDisplay}
           </a>
-          <Link
-            href="/contact"
-            className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white"
-          >
-            Send a message
-          </Link>
+          <CalendlyLink className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white">
+            Schedule a call
+          </CalendlyLink>
         </div>
       </section>
 

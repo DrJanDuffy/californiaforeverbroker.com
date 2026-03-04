@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { neighborhoods } from "@/lib/neighborhoods";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Neighborhoods",
+  title: "Homes for Sale by Neighborhood | Las Vegas & Henderson",
   description:
-    "Explore Las Vegas and Henderson neighborhoods: Summerlin, Henderson, Green Valley, Southern Highlands, and more. Find the right area for your relocation from California.",
+    "Find homes for sale in Summerlin, Henderson, Green Valley, Southern Highlands & more. Neighborhood guides for California homebuyers moving to Las Vegas.",
 };
 
 export default function NeighborhoodsIndexPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <h1 className="text-3xl font-bold text-slate-900 mb-4">
-        Las Vegas Neighborhoods We Serve
+        Homes for Sale by Neighborhood — Las Vegas & Henderson
       </h1>
       <p className="text-slate-600 mb-8">
-        Berkshire Hathaway HomeServices Nevada Properties covers all of Southern Nevada. Click a neighborhood to learn more and see homes.
+        Explore where to buy: Summerlin, Henderson, Green Valley, and more. Each neighborhood has its own lifestyle and price range. Click through for details and current homes for sale. Interested in new construction? See our <Link href="/new-homes" className="text-blue-600 hover:underline">new homes & builder incentives</Link> page, then <CalendlyLink className="text-blue-600 hover:underline">schedule an appointment</CalendlyLink> with Dr. Jan Duffy.
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

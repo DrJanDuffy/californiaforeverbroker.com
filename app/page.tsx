@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { neighborhoods } from "@/lib/neighborhoods";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 const whyRelocate = [
   "No state income tax — keep more of what you earn",
@@ -45,9 +46,25 @@ export default function Home() {
             Find Your Dream Home in Las Vegas & Henderson
           </h1>
           <p className="text-xl text-slate-300 mb-6">
-            Expert real estate for California homebuyers moving to Nevada. Your trusted partner for buying, selling, and relocating to Southern Nevada.
+            Expert real estate for California homebuyers moving to Nevada. Search homes for sale, explore neighborhoods, and get trusted help from offer to closing.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center text-sm">
+          <div className="flex flex-wrap gap-4 justify-center mb-6">
+            <a
+              href={realscoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-slate-900 px-6 py-3 rounded font-semibold hover:bg-slate-100"
+            >
+              Search Homes for Sale
+            </a>
+            <CalendlyLink className="inline-block border border-white text-white px-6 py-3 rounded font-semibold hover:bg-white/10">
+              Talk to an Agent
+            </CalendlyLink>
+          </div>
+          <p className="text-sm text-slate-400">
+            First-time homebuyer? Start with our <Link href="/relocation" className="text-white underline hover:no-underline">relocation guide</Link> and <Link href="/neighborhoods" className="text-white underline hover:no-underline">neighborhoods</Link>.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center text-sm mt-4">
             <span className="bg-slate-800 px-4 py-2 rounded">500+ Properties Sold</span>
             <span className="bg-slate-800 px-4 py-2 rounded">Since 2008</span>
             <span className="bg-slate-800 px-4 py-2 rounded">4.9★ Average Rating</span>
@@ -105,14 +122,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* New construction — GEO/AEO + appointment funnel */}
+      <section className="py-12 px-4 bg-slate-50 border-b">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            New Construction & Builder Incentives in Las Vegas & Henderson
+          </h2>
+          <p className="text-slate-600 mb-4">
+            Considering a new build? California homebuyers can tap into builder incentives—rate buydowns, closing cost credits—in Summerlin, Henderson, North Las Vegas, and Lake Las Vegas. Dr. Jan Duffy helps you compare communities and current promos so you buy with confidence.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/new-homes"
+              className="inline-block bg-slate-900 text-white px-6 py-3 rounded font-medium hover:bg-slate-800"
+            >
+              New homes & builder incentives
+            </Link>
+            <CalendlyLink className="inline-block border border-slate-900 text-slate-900 px-6 py-3 rounded font-medium hover:bg-slate-100">
+              Schedule an appointment with Dr. Jan Duffy
+            </CalendlyLink>
+          </div>
+        </div>
+      </section>
+
       {/* Featured properties / RealScout */}
       <section className="py-12 px-4 border-b">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Featured Properties
+            Homes for Sale in Las Vegas & Henderson
           </h2>
           <p className="text-slate-600 mb-6">
-            Discover homes in Las Vegas and Henderson.
+            Browse current listings—single-family homes, condos, and luxury properties. Updated daily for buyers and California relocators.
           </p>
           <a
             href={realscoutUrl}
@@ -120,7 +160,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-block bg-slate-900 text-white px-6 py-3 rounded font-medium hover:bg-slate-800"
           >
-            View all properties
+            Search all homes for sale
           </a>
         </div>
       </section>
@@ -129,8 +169,11 @@ export default function Home() {
       <section className="py-12 px-4 bg-slate-50">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            Las Vegas Neighborhoods We Serve
+            Find Homes for Sale by Neighborhood
           </h2>
+          <p className="text-slate-600 mb-6">
+            Explore where to buy: Summerlin, Henderson, Green Valley, and more. Each area has its own lifestyle and price range.
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {neighborhoods.map((n) => (
               <Link
@@ -139,7 +182,7 @@ export default function Home() {
                 className="block bg-white p-4 rounded shadow-sm hover:shadow-md border border-slate-100"
               >
                 <span className="font-semibold text-slate-900">{n.name}</span>
-                <span className="block text-sm text-slate-600">{n.priceFrom}</span>
+                <span className="block text-sm text-slate-600">Homes from {n.priceFrom}</span>
               </Link>
             ))}
           </div>
@@ -147,7 +190,7 @@ export default function Home() {
             href="/neighborhoods"
             className="inline-block mt-6 text-blue-600 hover:underline font-medium"
           >
-            View all neighborhoods →
+            View all neighborhoods & homes for sale →
           </Link>
         </div>
       </section>
@@ -213,28 +256,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Homebuyer resources */}
+      <section className="py-10 px-4 border-b bg-white">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            Homebuyer Resources
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href={realscoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline font-medium"
+            >
+              Search homes for sale
+            </a>
+            <Link href="/neighborhoods" className="text-blue-600 hover:underline font-medium">
+              Neighborhoods (Summerlin, Henderson, more)
+            </Link>
+            <Link href="/new-homes" className="text-blue-600 hover:underline font-medium">
+              New construction & builder incentives
+            </Link>
+            <Link href="/relocation" className="text-blue-600 hover:underline font-medium">
+              California to Las Vegas relocation guide
+            </Link>
+            <Link href="/market-report" className="text-blue-600 hover:underline font-medium">
+              Market report & stats
+            </Link>
+            <CalendlyLink className="text-blue-600 hover:underline font-medium">
+              Schedule an appointment with Dr. Jan Duffy
+            </CalendlyLink>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 px-4 bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold mb-4">
-            Ready to Make Las Vegas Home?
+            Ready to Buy a Home in Las Vegas or Henderson?
           </h2>
           <p className="text-slate-300 mb-6">
-            Whether you're buying, selling, or relocating from California, we're here to help.
+            Search listings, get a market report, or talk to an agent. We help California homebuyers and first-time buyers every step of the way.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href={`tel:${nap.phone}`}
+              href={realscoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-white text-slate-900 px-6 py-3 rounded font-medium hover:bg-slate-100"
+            >
+              Search homes for sale
+            </a>
+            <a
+              href={`tel:${nap.phone}`}
+              className="inline-block border border-white text-white px-6 py-3 rounded font-medium hover:bg-white/10"
             >
               Call {nap.phoneDisplay}
             </a>
-            <Link
-              href="/contact"
-              className="inline-block border border-white text-white px-6 py-3 rounded font-medium hover:bg-white/10"
-            >
-              Send a message
-            </Link>
+            <CalendlyLink className="inline-block border border-white text-white px-6 py-3 rounded font-medium hover:bg-white/10">
+              Schedule a call
+            </CalendlyLink>
           </div>
         </div>
       </section>

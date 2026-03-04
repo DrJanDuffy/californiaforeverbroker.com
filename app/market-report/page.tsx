@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Real Estate Market Report",
+  title: "Las Vegas & Henderson Market Report | Homes for Sale Stats",
   description:
-    "Current Las Vegas and Henderson market statistics: median price, days on market, inventory. Updated for buyers and sellers relocating from California.",
+    "Current Las Vegas and Henderson real estate stats: median home price, days on market, inventory. For homebuyers and California relocators. Updated regularly.",
 };
 
 const stats = [
@@ -41,12 +43,25 @@ export default function MarketReportPage() {
         Data is indicative and may vary by area and time. For the most current numbers and a personalized market snapshot for your target neighborhood, contact us.
       </p>
 
-      <Link
-        href="/contact"
-        className="inline-block bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-slate-800"
-      >
-        Get a custom market report
-      </Link>
+      <div className="flex flex-wrap gap-4">
+        <a
+          href={siteConfig.realscoutUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-slate-800"
+        >
+          Search homes for sale
+        </a>
+        <CalendlyLink className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white">
+          Schedule a call
+        </CalendlyLink>
+        <Link
+          href="/contact"
+          className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-900 hover:text-white"
+        >
+          Get a custom market report
+        </Link>
+      </div>
     </div>
   );
 }

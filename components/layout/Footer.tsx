@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 export function Footer() {
-  const { nap, agent, siteUrl, gbpReviewUrl } = siteConfig;
+  const { nap, agent, siteUrl, gbpReviewUrl, realscoutUrl } = siteConfig;
   return (
     <footer className="border-t border-slate-200 bg-slate-50 mt-auto">
       <div className="mx-auto max-w-6xl px-4 py-8">
@@ -20,7 +21,27 @@ export function Footer() {
               {nap.phoneDisplay}
             </a>
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 md:gap-6">
+            <CalendlyLink className="text-slate-600 hover:text-slate-900">
+              Schedule a call
+            </CalendlyLink>
+            <a
+              href={realscoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-900"
+            >
+              Search Homes for Sale
+            </a>
+            <Link href="/new-homes" className="text-slate-600 hover:text-slate-900">
+              New Homes
+            </Link>
+            <Link href="/neighborhoods" className="text-slate-600 hover:text-slate-900">
+              Neighborhoods
+            </Link>
+            <Link href="/relocation" className="text-slate-600 hover:text-slate-900">
+              Relocation Guide
+            </Link>
             <Link href="/contact" className="text-slate-600 hover:text-slate-900">
               Contact
             </Link>

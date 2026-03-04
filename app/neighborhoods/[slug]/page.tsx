@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { neighborhoods } from "@/lib/neighborhoods";
 import { siteConfig } from "@/lib/site-config";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -62,12 +63,9 @@ export default async function NeighborhoodPage({ params }: Props) {
         >
           View homes in {neighborhood.name}
         </a>
-        <Link
-          href="/contact"
-          className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-50"
-        >
-          Contact us
-        </Link>
+        <CalendlyLink className="inline-block border border-slate-900 text-slate-900 px-5 py-2 rounded font-medium hover:bg-slate-50">
+          Schedule a call
+        </CalendlyLink>
       </div>
 
       <script

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { ContactForm } from "./ContactForm";
+import { CalendlyInline } from "@/components/CalendlyInline";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact | Buy a Home in Las Vegas or Henderson",
   description:
-    "Get in touch with Dr. Jan Duffy for Las Vegas and Henderson real estate. California relocation expertise. Call or send a message.",
+    "Contact Dr. Jan Duffy to buy a home in Las Vegas or Henderson. California relocation, first-time homebuyer help, and neighborhood tours. Call or send a message.",
 };
 
 export default function ContactPage() {
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="grid md:grid-cols-2 gap-10">
         <div>
           <p className="text-slate-700 mb-6">
-            Whether you're buying, selling, or relocating from California to Las Vegas, we're here to help. See our <Link href="/relocation" className="text-blue-600 hover:underline">California to Las Vegas relocation guide</Link> for tips and a checklist.
+            Schedule an appointment with Dr. Jan Duffy for your homebuying or relocation plan. Whether you're interested in resale, new construction, or builder incentives in Las Vegas and Henderson, we're here to help. <a href={siteConfig.realscoutUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Search homes for sale</a>, read our <Link href="/relocation" className="text-blue-600 hover:underline">relocation guide</Link>, or <Link href="/new-homes" className="text-blue-600 hover:underline">new construction & builder incentives</Link>—then call or send a message to get started.
           </p>
           <div className="space-y-3 text-slate-700">
             <p className="font-semibold text-slate-900">{nap.name}</p>
@@ -44,7 +44,10 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <ContactForm />
+          <h2 className="text-xl font-bold text-slate-900 mb-3">
+            Book a 15-minute call with Dr. Jan Duffy
+          </h2>
+          <CalendlyInline />
         </div>
       </div>
 

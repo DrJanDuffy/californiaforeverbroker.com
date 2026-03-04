@@ -3,19 +3,28 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CalendlyBadge } from "@/components/CalendlyBadge";
 import { LocalBusinessJsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: {
-    default: "California Forever Broker | California Homebuyers Moving to Las Vegas",
+    default: "Homes for Sale Las Vegas & Henderson | California Forever Broker",
     template: "%s | California Forever Broker",
   },
   description:
-    "Expert real estate for California homebuyers moving to Las Vegas and Henderson. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Relocation guide, neighborhoods, market reports.",
+    "Find homes for sale in Las Vegas and Henderson. California homebuyers: search listings, relocation guide, neighborhoods & market reports. Dr. Jan Duffy, Berkshire Hathaway HomeServices.",
+  keywords: [
+    "homes for sale Las Vegas",
+    "homes for sale Henderson",
+    "buy a home Las Vegas",
+    "California to Las Vegas real estate",
+    "first-time homebuyer Las Vegas",
+    "relocation real estate Nevada",
+  ],
   openGraph: {
-    title: "California Forever Broker | California to Las Vegas Real Estate",
-    description: "Your trusted partner for relocating from California to Las Vegas. Neighborhoods, market insights, and full-service buying and selling.",
+    title: "Homes for Sale Las Vegas & Henderson | California Forever Broker",
+    description: "Search homes for sale in Las Vegas and Henderson. Your trusted partner for buying, relocating from California, and neighborhood guides.",
     url: siteConfig.siteUrl,
   },
   metadataBase: new URL(siteConfig.siteUrl),
@@ -30,8 +39,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <LocalBusinessJsonLd />
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
         <Script
           src="https://em.realscout.com/embed.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
           strategy="lazyOnload"
         />
       </head>
@@ -39,6 +56,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CalendlyBadge />
       </body>
     </html>
   );

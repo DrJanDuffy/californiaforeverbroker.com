@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
+import { CalendlyLink } from "@/components/CalendlyLink";
 
 const nav = [
+  { href: siteConfig.realscoutUrl, label: "Search Homes", external: true },
   { href: "/", label: "Home" },
-  { href: "/relocation", label: "Relocation" },
+  { href: "/new-homes", label: "New Homes" },
   { href: "/neighborhoods", label: "Neighborhoods" },
+  { href: "/relocation", label: "Relocation" },
   { href: "/market-report", label: "Market Report" },
   { href: "/contact", label: "Contact" },
 ];
@@ -15,16 +19,31 @@ export function Header() {
         <Link href="/" className="text-xl font-semibold text-slate-900">
           California Forever Broker
         </Link>
-        <nav className="flex gap-6" aria-label="Main">
-          {nav.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="text-slate-600 hover:text-slate-900"
-            >
-              {label}
-            </Link>
-          ))}
+        <nav className="flex flex-wrap gap-4 md:gap-6 items-center" aria-label="Main">
+          <CalendlyLink className="text-slate-600 hover:text-slate-900 font-medium">
+            Schedule a call
+          </CalendlyLink>
+          {nav.map(({ href, label, external }) =>
+            external ? (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-slate-900 font-medium"
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                key={href}
+                href={href}
+                className="text-slate-600 hover:text-slate-900"
+              >
+                {label}
+              </Link>
+            )
+          )}
         </nav>
       </div>
     </header>

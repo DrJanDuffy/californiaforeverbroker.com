@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     title: "California Forever Broker | California to Las Vegas Real Estate",
     description: "Your trusted partner for relocating from California to Las Vegas. Neighborhoods, market insights, and full-service buying and selling.",
     url: siteConfig.siteUrl,
+    type: "website",
+  },
+  alternates: {
+    canonical: siteConfig.siteUrl,
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   metadataBase: new URL(siteConfig.siteUrl),
 };

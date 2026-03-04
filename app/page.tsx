@@ -1,4 +1,19 @@
 import Link from "next/link";
+import {
+  CheckCircle2,
+  Shield,
+  TrendingUp,
+  Heart,
+  Award,
+  Clock,
+  Briefcase,
+  MapPin,
+  ArrowRight,
+  Quote,
+  Star,
+  Phone,
+  ArrowUpRight,
+} from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { neighborhoods } from "@/lib/neighborhoods";
 
@@ -10,12 +25,12 @@ const whyRelocate = [
 ];
 
 const whyChooseUs = [
-  { title: "Trusted Expertise", desc: "Serving Las Vegas and Henderson since 2008 with proven results." },
-  { title: "Market Knowledge", desc: "Deep understanding of local market trends and neighborhood insights." },
-  { title: "Personalized Service", desc: "Dedicated attention to every client with customized solutions." },
-  { title: "Proven Results", desc: "500+ successful transactions and satisfied clients." },
-  { title: "Responsive", desc: "Quick response times and seamless communication throughout." },
-  { title: "Full Service", desc: "Complete support from search to closing and beyond." },
+  { icon: Shield, title: "Trusted Expertise", desc: "Serving Las Vegas and Henderson since 2008 with proven results." },
+  { icon: TrendingUp, title: "Market Knowledge", desc: "Deep understanding of local market trends and neighborhood insights." },
+  { icon: Heart, title: "Personalized Service", desc: "Dedicated attention to every client with customized solutions." },
+  { icon: Award, title: "Proven Results", desc: "500+ successful transactions and satisfied clients." },
+  { icon: Clock, title: "Responsive", desc: "Quick response times and seamless communication throughout." },
+  { icon: Briefcase, title: "Full Service", desc: "Complete support from search to closing and beyond." },
 ];
 
 const testimonials = [
@@ -39,130 +54,207 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Find Your Dream Home in Las Vegas & Henderson
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24 px-4 overflow-hidden">
+        {/* Decorative warm glow */}
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-brand-900/30 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-brand-900/20 to-transparent pointer-events-none" />
+
+        <div className="relative mx-auto max-w-5xl text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-brand-500/20 border border-brand-500/40 text-brand-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <span>California to Las Vegas Relocation Specialist</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight text-balance">
+            Find Your Dream Home in{" "}
+            <span className="text-brand-400">Las Vegas & Henderson</span>
           </h1>
-          <p className="text-xl text-slate-300 mb-6">
+
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
             Expert real estate for California homebuyers moving to Nevada. Your trusted partner for buying, selling, and relocating to Southern Nevada.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center text-sm">
-            <span className="bg-slate-800 px-4 py-2 rounded">500+ Properties Sold</span>
-            <span className="bg-slate-800 px-4 py-2 rounded">Since 2008</span>
-            <span className="bg-slate-800 px-4 py-2 rounded">4.9★ Average Rating</span>
+
+          <div className="flex flex-wrap gap-4 justify-center mb-12">
+            <a
+              href={realscoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors shadow-lg shadow-brand-900/30"
+            >
+              Search Properties
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 border-2 border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors hover:bg-white/5"
+            >
+              Schedule Consultation
+            </Link>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3 justify-center text-sm text-slate-400">
+            {[
+              "500+ Properties Sold",
+              "Serving Las Vegas Since 2008",
+              "4.9★ Average Rating",
+              "BHHS Nevada Properties",
+            ].map((badge) => (
+              <div key={badge} className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-brand-400 shrink-0" />
+                <span>{badge}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why relocate */}
-      <section className="py-12 px-4 border-b">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+      {/* Why Relocate */}
+      <section className="py-16 px-4 border-b border-slate-100">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Why California Homebuyers Choose Las Vegas
           </h2>
-          <ul className="grid md:grid-cols-2 gap-3 list-disc list-inside text-slate-700">
-            {whyRelocate.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-6 text-slate-600">
+          <p className="text-slate-500 mb-8 max-w-2xl">
             When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength.
           </p>
+          <ul className="grid md:grid-cols-2 gap-4">
+            {whyRelocate.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 bg-white border border-slate-200 hover:border-brand-300 p-5 rounded-xl shadow-sm transition-colors"
+              >
+                <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <Link
+              href="/relocation"
+              className="inline-flex items-center gap-2 text-brand-700 hover:text-brand-600 font-semibold transition-colors"
+            >
+              Read the full relocation guide
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Market snapshot */}
-      <section className="py-12 px-4 bg-slate-50">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+      {/* Market Snapshot */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Las Vegas Real Estate Market
           </h2>
+          <p className="text-slate-500 mb-8">Current market conditions for Southern Nevada.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded shadow-sm text-center">
-              <p className="text-2xl font-bold text-slate-900">$450K</p>
-              <p className="text-sm text-slate-600">Median Home Price</p>
-            </div>
-            <div className="bg-white p-4 rounded shadow-sm text-center">
-              <p className="text-2xl font-bold text-slate-900">28</p>
-              <p className="text-sm text-slate-600">Avg Days on Market</p>
-            </div>
-            <div className="bg-white p-4 rounded shadow-sm text-center">
-              <p className="text-2xl font-bold text-slate-900">4,850</p>
-              <p className="text-sm text-slate-600">Active Listings</p>
-            </div>
-            <div className="bg-white p-4 rounded shadow-sm text-center">
-              <p className="text-2xl font-bold text-slate-900">2.1</p>
-              <p className="text-sm text-slate-600">Months Inventory</p>
-            </div>
+            {[
+              { value: "$450K", label: "Median Home Price" },
+              { value: "28", label: "Avg Days on Market" },
+              { value: "4,850", label: "Active Listings" },
+              { value: "2.1 mo", label: "Inventory" },
+            ].map(({ value, label }) => (
+              <div
+                key={label}
+                className="bg-white p-6 rounded-xl shadow-sm text-center border border-slate-100 hover:border-brand-200 transition-colors"
+              >
+                <p className="text-3xl font-bold text-brand-600">{value}</p>
+                <p className="text-sm text-slate-500 mt-1">{label}</p>
+              </div>
+            ))}
           </div>
-          <Link
-            href="/market-report"
-            className="inline-block mt-6 text-blue-600 hover:underline font-medium"
-          >
-            View full market report →
-          </Link>
+          <div className="mt-6">
+            <Link
+              href="/market-report"
+              className="inline-flex items-center gap-2 text-brand-700 hover:text-brand-600 font-semibold transition-colors"
+            >
+              View full market report
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Featured properties / RealScout */}
-      <section className="py-12 px-4 border-b">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">
+      {/* Featured Properties */}
+      <section className="py-16 px-4 border-b border-slate-100">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Featured Properties
           </h2>
-          <p className="text-slate-600 mb-6">
-            Discover homes in Las Vegas and Henderson.
+          <p className="text-slate-500 mb-8">
+            Discover homes in Las Vegas and Henderson. Browse current listings to find the right fit for your lifestyle and budget.
           </p>
           <a
             href={realscoutUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-slate-900 text-white px-6 py-3 rounded font-medium hover:bg-slate-800"
+            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-7 py-3.5 rounded-xl font-semibold transition-colors shadow-sm"
           >
-            View all properties
+            Browse All Properties
+            <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
       </section>
 
       {/* Neighborhoods */}
-      <section className="py-12 px-4 bg-slate-50">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Las Vegas Neighborhoods We Serve
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <p className="text-slate-500 mb-8">
+            From master-planned communities to luxury enclaves — find the right fit.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {neighborhoods.map((n) => (
               <Link
                 key={n.slug}
                 href={`/neighborhoods/${n.slug}`}
-                className="block bg-white p-4 rounded shadow-sm hover:shadow-md border border-slate-100"
+                className="group flex items-center justify-between bg-white p-5 rounded-xl shadow-sm hover:shadow-md border border-slate-100 hover:border-brand-200 transition-all"
               >
-                <span className="font-semibold text-slate-900">{n.name}</span>
-                <span className="block text-sm text-slate-600">{n.priceFrom}</span>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" />
+                  <div>
+                    <span className="font-semibold text-slate-900 block">{n.name}</span>
+                    <span className="text-sm text-slate-500">From {n.priceFrom}</span>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all" />
               </Link>
             ))}
           </div>
-          <Link
-            href="/neighborhoods"
-            className="inline-block mt-6 text-blue-600 hover:underline font-medium"
-          >
-            View all neighborhoods →
-          </Link>
+          <div className="mt-6">
+            <Link
+              href="/neighborhoods"
+              className="inline-flex items-center gap-2 text-brand-700 hover:text-brand-600 font-semibold transition-colors"
+            >
+              View all neighborhoods
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Why choose us */}
-      <section className="py-12 px-4 border-b">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            Why Choose Us
+      {/* Why Choose Us */}
+      <section className="py-16 px-4 border-b border-slate-100">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+            Why Choose Dr. Jan Duffy
           </h2>
+          <p className="text-slate-500 mb-10">
+            Your dedicated partner for every step of the relocation journey.
+          </p>
           <div className="grid md:grid-cols-2 gap-6">
-            {whyChooseUs.map(({ title, desc }) => (
-              <div key={title}>
-                <h3 className="font-semibold text-slate-900">{title}</h3>
-                <p className="text-slate-600 text-sm mt-1">{desc}</p>
+            {whyChooseUs.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-11 h-11 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-brand-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -170,43 +262,75 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-12 px-4 bg-slate-50">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            What Our Clients Say
-          </h2>
-          <p className="text-slate-600 mb-6">4.9 (500+ reviews)</p>
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+                What Our Clients Say
+              </h2>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-brand-500 text-brand-500" />
+                  ))}
+                </div>
+                <span className="text-slate-500 text-sm">4.9 · 500+ reviews</span>
+              </div>
+            </div>
+            <a
+              href={gbpReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-brand-700 hover:text-brand-600 font-semibold text-sm transition-colors shrink-0"
+            >
+              Read more on Google
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map(({ name, location, text }) => (
-              <blockquote key={name} className="bg-white p-4 rounded shadow-sm border border-slate-100">
-                <p className="text-slate-700 text-sm">{text}</p>
-                <cite className="not-italic font-semibold text-slate-900 block mt-3">{name}</cite>
-                <span className="text-slate-500 text-sm">{location}</span>
+              <blockquote
+                key={name}
+                className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow flex flex-col"
+              >
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-brand-500 text-brand-500" />
+                  ))}
+                </div>
+                <Quote className="w-6 h-6 text-brand-200 mb-3" />
+                <p className="text-slate-600 text-sm leading-relaxed flex-1">{text}</p>
+                <div className="mt-5 pt-4 border-t border-slate-100">
+                  <cite className="not-italic font-semibold text-slate-900 text-sm">{name}</cite>
+                  <span className="text-slate-400 text-xs block mt-0.5">{location}</span>
+                </div>
               </blockquote>
             ))}
           </div>
-          <a
-            href={gbpReviewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-6 text-blue-600 hover:underline font-medium"
-          >
-            Read more reviews on Google
-          </a>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-12 px-4 border-b">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+      <section className="py-16 px-4 border-b border-slate-100">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Frequently Asked Questions
           </h2>
-          <dl className="space-y-4">
+          <p className="text-slate-500 mb-10">
+            Common questions from California buyers relocating to Nevada.
+          </p>
+          <dl className="space-y-0 divide-y divide-slate-100">
             {faqs.map(({ q, a }) => (
-              <div key={q}>
-                <dt className="font-semibold text-slate-900">{q}</dt>
-                <dd className="text-slate-600 text-sm mt-1 pl-0">{a}</dd>
+              <div key={q} className="py-6">
+                <dt className="font-semibold text-slate-900 mb-2 flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 text-xs font-bold mt-0.5">
+                    Q
+                  </span>
+                  {q}
+                </dt>
+                <dd className="text-slate-500 text-sm leading-relaxed pl-9">{a}</dd>
               </div>
             ))}
           </dl>
@@ -214,26 +338,27 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 bg-slate-900 text-white">
+      <section className="py-20 px-4 bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to Make Las Vegas Home?
           </h2>
-          <p className="text-slate-300 mb-6">
-            Whether you're buying, selling, or relocating from California, we're here to help.
+          <p className="text-brand-100 mb-10 max-w-xl mx-auto">
+            Whether you&apos;re buying, selling, or relocating from California, we&apos;re here to help every step of the way.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href={`tel:${nap.phone}`}
-              className="inline-block bg-white text-slate-900 px-6 py-3 rounded font-medium hover:bg-slate-100"
+              className="inline-flex items-center gap-2 bg-white text-brand-700 px-8 py-4 rounded-xl font-semibold hover:bg-brand-50 transition-colors shadow-lg"
             >
+              <Phone className="w-5 h-5" />
               Call {nap.phoneDisplay}
             </a>
             <Link
               href="/contact"
-              className="inline-block border border-white text-white px-6 py-3 rounded font-medium hover:bg-white/10"
+              className="inline-flex items-center gap-2 border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded-xl font-semibold transition-colors hover:bg-white/10"
             >
-              Send a message
+              Send a Message
             </Link>
           </div>
         </div>

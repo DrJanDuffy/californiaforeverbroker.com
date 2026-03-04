@@ -1,42 +1,90 @@
 import Link from "next/link";
+import { Phone, MapPin, Star } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+
+const quickLinks = [
+  { href: "/relocation", label: "Relocation Guide" },
+  { href: "/neighborhoods", label: "Neighborhoods" },
+  { href: "/market-report", label: "Market Report" },
+  { href: "/contact", label: "Contact Us" },
+];
 
 export function Footer() {
   const { nap, agent, siteUrl, gbpReviewUrl } = siteConfig;
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 mt-auto">
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
+    <footer className="bg-slate-900 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
+          {/* Brand */}
           <div>
-            <p className="font-semibold text-slate-900">{nap.name}</p>
-            <p className="text-sm text-slate-600">
-              License {agent.license} | {agent.brokerage}
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-9 h-9 bg-brand-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">JD</span>
+              </div>
+              <span className="font-semibold text-white">{nap.name}</span>
+            </div>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              {agent.brokerage}
             </p>
-            <p className="text-sm text-slate-600 mt-1">{nap.streetAddress}</p>
-            <a
-              href={`tel:${nap.phone}`}
-              className="text-sm text-blue-600 hover:underline mt-1 block"
-            >
-              {nap.phoneDisplay}
-            </a>
+            <p className="text-slate-500 text-xs">License {agent.license}</p>
           </div>
-          <div className="flex gap-6">
-            <Link href="/contact" className="text-slate-600 hover:text-slate-900">
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
+              Quick Links
+            </h3>
+            <nav className="flex flex-col gap-2">
+              {quickLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-slate-400 hover:text-white text-sm transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Contact
-            </Link>
-            <a
-              href={gbpReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-600 hover:text-slate-900"
-            >
-              Google Reviews
-            </a>
+            </h3>
+            <div className="space-y-3">
+              <a
+                href={`tel:${nap.phone}`}
+                className="flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                <Phone className="w-4 h-4 text-brand-500" />
+                {nap.phoneDisplay}
+              </a>
+              <div className="flex items-start gap-2 text-slate-400 text-sm">
+                <MapPin className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" />
+                <span>{nap.streetAddress}</span>
+              </div>
+              <a
+                href={gbpReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                <Star className="w-4 h-4 text-brand-500" />
+                Google Reviews (4.9★)
+              </a>
+            </div>
           </div>
         </div>
-        <p className="text-xs text-slate-500 mt-6">
-          Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} | {siteUrl.replace("https://", "")} – {agent.brokerage}
-        </p>
+
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+          <p className="text-xs text-slate-500">
+            © {new Date().getFullYear()} {siteUrl.replace("https://", "")} — {agent.brokerage}
+          </p>
+          <p className="text-xs text-slate-600">
+            Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -37,6 +37,9 @@ export default function RelocationPage() {
         <p className="text-lg text-slate-700">
           More California homebuyers are choosing Las Vegas and Henderson for lower taxes, affordable housing, and a strong quality of life. Here's what you need to know and how to plan your move.
         </p>
+        <p className="text-slate-700">
+          This guide is a durable resource—we keep our relocation content, neighborhood insights, and market data current so you get lasting value. You also get one accountable partner: a licensed real estate professional backed by Berkshire Hathaway HomeServices, so your relocation is handled with clarity and compliance from start to finish.
+        </p>
       </section>
 
       <section className="mb-10">

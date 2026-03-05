@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="grid md:grid-cols-2 gap-10">
         <div>
           <p className="text-slate-700 mb-6">
-            Schedule an appointment with Dr. Jan Duffy for your homebuying or relocation plan. Whether you're interested in resale, new construction, or builder incentives in Las Vegas and Henderson, we're here to help. <a href={siteConfig.realscoutUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Search homes for sale</a>, read our <Link href="/relocation" className="text-blue-600 hover:underline">relocation guide</Link>, or <Link href="/new-homes" className="text-blue-600 hover:underline">new construction & builder incentives</Link>—then call or send a message to get started.
+            Schedule an appointment with Dr. Jan Duffy for your homebuying or relocation plan. You get accountable, licensed representation—one clear point of contact for your California-to-Las-Vegas move. Whether you're interested in resale, new construction, or builder incentives in Las Vegas and Henderson, we're here to help. <a href={siteConfig.realscoutUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Search homes for sale</a>, read our <Link href="/relocation" className="text-blue-600 hover:underline">relocation guide</Link>, or <Link href="/new-homes" className="text-blue-600 hover:underline">new construction & builder incentives</Link>—then call or send a message to get started.
           </p>
           <div className="space-y-3 text-slate-700">
             <p className="font-semibold text-slate-900">{nap.name}</p>

@@ -33,14 +33,32 @@ export function Footer() {
             >
               Search Homes for Sale
             </a>
+            <Link href="/services" className="text-slate-600 hover:text-slate-900">
+              Services
+            </Link>
+            <Link href="/about" className="text-slate-600 hover:text-slate-900">
+              About
+            </Link>
             <Link href="/new-homes" className="text-slate-600 hover:text-slate-900">
               New Homes
+            </Link>
+            <Link href="/sellers" className="text-slate-600 hover:text-slate-900">
+              Sell Your Home
             </Link>
             <Link href="/neighborhoods" className="text-slate-600 hover:text-slate-900">
               Neighborhoods
             </Link>
+            <Link href="/luxury" className="text-slate-600 hover:text-slate-900">
+              Luxury Homes
+            </Link>
+            <Link href="/55-plus" className="text-slate-600 hover:text-slate-900">
+              55+ Communities
+            </Link>
             <Link href="/relocation" className="text-slate-600 hover:text-slate-900">
               Relocation Guide
+            </Link>
+            <Link href="/market-report" className="text-slate-600 hover:text-slate-900">
+              Market Report
             </Link>
             <Link href="/contact" className="text-slate-600 hover:text-slate-900">
               Contact
@@ -56,7 +74,7 @@ export function Footer() {
           </div>
         </div>
         <p className="text-xs text-slate-500 mt-6">
-          Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} | {siteUrl.replace("https://", "")} – {agent.brokerage}
+          Our neighborhood guides, relocation guide, and market insights are kept current for California-to-Las-Vegas relocators. Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} | {siteUrl.replace("https://", "")} – {agent.brokerage}
         </p>
       </div>
     </footer>

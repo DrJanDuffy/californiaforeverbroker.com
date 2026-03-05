@@ -9,6 +9,12 @@ declare global {
         branding?: boolean;
       }) => void;
       initPopupWidget: (opts: { url: string }) => void;
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement?: HTMLElement;
+        minWidth?: number;
+        height?: number;
+      }) => void;
     };
   }
 }

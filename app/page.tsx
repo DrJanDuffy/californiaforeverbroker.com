@@ -30,6 +30,7 @@ const faqs = [
   { q: "How long does the home buying process take?", a: "Typically 30–45 days from accepted offer to closing. For relocating buyers, we can coordinate showings and virtual tours to fit your timeline." },
   { q: "Do you help with home valuations?", a: "Yes. We provide complimentary home valuations and can connect you with tools to compare your California equity to Las Vegas options." },
   { q: "What makes you different for California relocators?", a: "We focus on the full relocation journey: taxes, cost of living, schools, and neighborhoods. You get one trusted partner from first search through closing and beyond." },
+  { q: "Why choose a dedicated relocation expert instead of a generic search?", a: "Relocation is a durable decision—neighborhoods, taxes, and timing matter for years. We lead with accountability: a licensed agent, clear process, and one point of contact so you have a safe, accountable choice for your move to Las Vegas." },
   { q: "Can you help with investment properties?", a: "Yes. We work with investors on single-family and multi-unit acquisitions in the Las Vegas valley." },
   { q: "What are your fees?", a: "Buyer representation is typically paid by the seller. We'll outline all costs clearly at the start so there are no surprises." },
 ];
@@ -85,6 +86,18 @@ export default function Home() {
           </ul>
           <p className="mt-6 text-slate-600">
             When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength.
+          </p>
+        </div>
+      </section>
+
+      {/* Kit: Durable resource + accountability (real estate / relocation) */}
+      <section className="py-12 px-4 bg-slate-50 border-b">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            Your Relocation Resource — Built to Last
+          </h2>
+          <p className="text-slate-700 mb-4">
+            We don't rely on a single page or a one-off campaign. Your California-to-Las-Vegas move is supported by a clear, durable set of resources: our <Link href="/relocation" className="text-blue-600 hover:underline">relocation guide</Link> (why move, taxes, cost of living, schools, checklist), <Link href="/neighborhoods" className="text-blue-600 hover:underline">neighborhood guides</Link> (Summerlin, Henderson, Green Valley, and more), and <Link href="/market-report" className="text-blue-600 hover:underline">market report</Link>. These are kept current so you get lasting value—and one accountable partner, licensed and backed by Berkshire Hathaway HomeServices, from first search through closing.
           </p>
         </div>
       </section>
@@ -209,6 +222,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-slate-600">
+            <Link href="/about" className="text-blue-600 hover:underline">Meet Dr. Jan Duffy</Link>
+            {" · "}
+            <Link href="/services" className="text-blue-600 hover:underline">View all services</Link>
+          </p>
         </div>
       </section>
 
@@ -276,6 +294,15 @@ export default function Home() {
             </Link>
             <Link href="/new-homes" className="text-blue-600 hover:underline font-medium">
               New construction & builder incentives
+            </Link>
+            <Link href="/services" className="text-blue-600 hover:underline font-medium">
+              Services (buy, sell, luxury, 55+)
+            </Link>
+            <Link href="/about" className="text-blue-600 hover:underline font-medium">
+              About Dr. Jan Duffy
+            </Link>
+            <Link href="/sellers" className="text-blue-600 hover:underline font-medium">
+              Sell your home
             </Link>
             <Link href="/relocation" className="text-blue-600 hover:underline font-medium">
               California to Las Vegas relocation guide

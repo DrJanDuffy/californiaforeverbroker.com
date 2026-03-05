@@ -5,6 +5,8 @@ import { CalendlyLink } from "@/components/CalendlyLink";
 const nav = [
   { href: siteConfig.realscoutUrl, label: "Search Homes", external: true },
   { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
   { href: "/new-homes", label: "New Homes" },
   { href: "/neighborhoods", label: "Neighborhoods" },
   { href: "/relocation", label: "Relocation" },
